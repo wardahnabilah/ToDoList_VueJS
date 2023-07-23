@@ -1,11 +1,14 @@
 <script setup>
+    import { defineProps } from 'vue';
+
+    const props = defineProps(['task', 'dateDeadline', 'timeDeadline'])
 
 </script>
 
 <template>
-    <div class="w-[18rem] p-4 relative border-white bg-gradient-to-r from-[#e944608a] to-[#A5D7E8] rounded-lg">
-        <h2 class="mb-2 text-xl text-[#090f1b] font-bold">Read a book</h2>
-        <p class="text-sm">Deadline: 22 Aug 2023 02.43 AM</p>
+    <div class="w-[18rem] m-3 p-4 inline relative border-white bg-gradient-to-r from-[#e944608a] to-[#A5D7E8] rounded-lg">
+        <h2 class="mb-2 text-xl text-[#090f1b] font-bold">{{props.task}}</h2>
+        <p class="text-sm">Deadline: {{ props.dateDeadline }} {{ props.timeDeadline }}</p>
         <div class="absolute top-2.5 right-2.5">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M7 5c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2H7zm0 12V7h10l.002 10H7z"></path></svg>
             <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M7 5c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2H7zm0 12V7h10l.002 10H7z"></path><path d="M10.996 12.556 9.7 11.285l-1.4 1.43 2.704 2.647 4.699-4.651-1.406-1.422z"></path></svg> -->
