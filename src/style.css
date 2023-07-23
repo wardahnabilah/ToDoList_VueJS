@@ -3,6 +3,6 @@
 @tailwind utilities;
 
 body {
-    background-color: rgb(21, 32, 60);
+    background-color: hsl(223, 48%, 16%);
     padding-block: 2rem;
 }
