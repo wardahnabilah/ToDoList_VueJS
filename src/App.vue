@@ -14,9 +14,8 @@
 
   const task = ref('')
   const todoList = ref([]) 
-
-  console.log(time.value);
   
+  // Add new task
   function addNewTask() {
     if(task.value != ''){
       todoList.value.push({task: task.value, dateDeadline: deadline.value, timeDeadline: time.value, isDone: false})
@@ -24,6 +23,14 @@
 
     task.value = ''
   }
+
+  // Task Done
+  function checkDone(id) {
+    todoList.value[id].isDone = !todoList.value[id].isDone
+
+    console.log(todoList.value[id].isDone);
+  }
+
 </script>
 
 <template>
@@ -39,7 +46,13 @@
       <button @click="addNewTask" class="p-1.5 bg-[#e9445f] hover:bg-[#8b2738] shadow rounded-full text-white font-bold">ADD</button>
     </div>
     <div class="flex flex-wrap gap-8">
-      <TodoItem v-for="(todo, id) in todoList" :key="id" :task="todo.task" :date-deadline="todo.dateDeadline" :time-deadline="todo.timeDeadline"/>  
+      <TodoItem v-for="(todo, id) in todoList" 
+          :key="id" 
+          :checkDone="()=>checkDone(id)" 
+          :task="todo.task" 
+          :date-deadline="todo.dateDeadline" 
+          :time-deadline="todo.timeDeadline" 
+          :isDone="todo.isDone"/>  
     </div>
   </div>
 
