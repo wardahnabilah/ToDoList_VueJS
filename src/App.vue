@@ -31,6 +31,11 @@
     console.log(todoList.value[id].isDone);
   }
 
+  // Delete a task
+  function deleteTask(id) {
+    todoList.value = todoList.value.filter(todo => todoList.value.indexOf(todo) != id)
+  }
+
 </script>
 
 <template>
@@ -48,7 +53,8 @@
     <div class="flex flex-wrap gap-8">
       <TodoItem v-for="(todo, id) in todoList" 
           :key="id" 
-          :checkDone="()=>checkDone(id)" 
+          :checkDone="()=>checkDone(id)"
+          :deleteTask="()=>deleteTask(id)" 
           :task="todo.task" 
           :date-deadline="todo.dateDeadline" 
           :time-deadline="todo.timeDeadline" 
